@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Users/Callum/Documents/Eclipse Projects/libraries/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Callum/Documents/Eclipse Projects/libraries/natives/windows"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Callum/Documents/Eclipse Projects/libraries/slick.jar" sourcepath="C:/Users/Callum/Documents/Eclipse Projects/libraries/Slick"/>
+	<classpathentry kind="lib" path="C:/Users/Callum/Documents/Eclipse Projects/libraries/slickGUI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Callum/Documents/Eclipse Projects/libraries/Slick/lib/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Callum/Documents/Eclipse Projects/libraries/Slick/lib/jorbis-0.0.15.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

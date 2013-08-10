@@ -1,0 +1,41 @@
+TODO:
+* add waypoint control
+	* add a waypoint control button that goes through all fleets and starts them on their paths if their paths arent empty
+* zoom in on cursor position in world space
+* add dragging around the screen []
+* end game tech allows jumping across stars without lines
+* fleets should wait for a bit while conquering a populated star
+* add timer to fleet display (show how long fleet will take to get to destination)
+* allow splitting fleets into new fleets
+* not sure that fleet hud is entirely useful (maybe add speed label + split button)
+* stop tech from increasing so rapidly []
+* ai should know when its out of (low on) ships []
+* add random generated black holes that consume whole fleets
+* pressing tab should also show the % of stars that the player controls
+* ai should be able to build up fleets []
+* scroll by moving the mouse to the screen edges
+* add selection box (select and move multiple fleets)
+* add shaders? (some kind of light reflections or whatever, bloom from stars)
+* may require a lot of refactoring, but create a spatial partitioner (Map filled with Stars with their Positions as Keys), finding the nearest star is much faster now
+* show game timer
+* potentially, you can gain tech points so quickly that the beep sound will become loud and constant, fix
+
+BUGS:
+* if path has exhausted all possibilities, game crashes (fix so that if queue is empty after complete search, set dest back to the beginning)
+* name generator takes way too long, fix
+* drawing movement paths can draw straight from star to star without connections
+* after clicking on a star that wasnt preowned by the player, the build fleet button doesnt work on it, and the minimap controls stop working []
+* crash when queueing stars with waypoints (if worst comes to worst, remove waypoints)
+* fleet resolution still does not work for some reason (not sure if fixed) []
+* pathfinding is incorrect (doesnt go to nearest in mid flight)
+* total tech increases to amounts beyond the actual number
+* cant deselect enemy units
+* can still colonize star even though it has max pop []
+* not all the stars connect
+* some void stars still remain (stars that consume whole fleets)
+* some fleets (upon placing) still do not stack up
+* camera no longer moves to the starting position
+* pressing H once you've lost your home star will crash (hasnt changed yet)
+
+[] means i think its fixed
+average FPS is 600
