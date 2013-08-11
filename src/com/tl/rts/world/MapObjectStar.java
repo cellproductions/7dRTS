@@ -50,7 +50,7 @@ public class MapObjectStar
 			g.drawLine(drawFrom.x, drawFrom.y, point.x, point.y);
 		if (owner != null)
 			g.setColor(owner.getColour());
-		TPoint point = bounds.getTopLeftCorner();
+		TPoint point = bounds.getTopCorner();
 		g.fillRect(point.x, point.y, size, size);
 	}
 	

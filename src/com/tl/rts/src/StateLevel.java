@@ -153,7 +153,7 @@ public class StateLevel extends BasicGameState
 		MusicManager.play(new Random().nextBoolean() ? theme1 : theme2);
 	}
 
-	private float cWidth; // width of the yellow rectangle representing the camera on the minimap
+	private float cWidth;
 	private float cHeight;
 	private int delta;
 	
@@ -168,14 +168,8 @@ public class StateLevel extends BasicGameState
 		g.drawImage(background, -100, -100);
 		g.translate(-xdist, -ydist);
 		
-		float cx = Game.screenWidth / 2 + x;
-		float cy = Game.screenHeight / 2 + y;
-		
-		//g.translate(-x, -y);
-		//g.translate(cx, cy);
-		//g.scale(Camera.zoom, Camera.zoom);
-		//g.translate(-cx, -cy);
-		g.translate(-Camera.position.x, -Camera.position.y);
+		g.scale(Camera.zoom, Camera.zoom);
+		g.translate((int)-Camera.position.x, (int)-Camera.position.y);
 		StarManager.draw(g, delta);
 		FleetManager.draw(g, delta);
 		//g.translate((int)Camera.position.x, (int)Camera.position.y);
@@ -184,20 +178,9 @@ public class StateLevel extends BasicGameState
 		g.resetTransform();
 		drawGUIs(g);
 		g.setColor(Color.yellow);
-		float width = cWidth / Camera.zoom; // cWidth to scale
-		float height = cHeight / Camera.zoom; // cHeight to scale
-		float posx = (x / WorldGenerator.getSize().width * cMinimapDisplay.itemWidth() + cMinimapDisplay.getScreenX()); //  - width / 2
-		float posy = (y / WorldGenerator.getSize().height * cMinimapDisplay.itemHeight() + cMinimapDisplay.getScreenY()); //  - height / 2
-		if (posx < cMinimapDisplay.getScreenX())
-			posx = cMinimapDisplay.getScreenX();
-		else if (posx + width / 2f >= cMinimapDisplay.getScreenX() + cMinimapDisplay.itemWidth())
-			posx = cMinimapDisplay.getScreenX() + cMinimapDisplay.itemWidth() - width - 1;
-		if (posy < cMinimapDisplay.getScreenY())
-			posy = cMinimapDisplay.getScreenY();
-		else if (posy + height / 2f >= cMinimapDisplay.getScreenY() + cMinimapDisplay.itemHeight())
-			posy = cMinimapDisplay.getScreenY() + cMinimapDisplay.itemHeight() - height - 1;
-		
-		g.drawRect(posx - width / 2f, posy - height / 2f, width, height);
+		g.drawRect(Camera.position.x / WorldGenerator.getSize().width * cMinimapDisplay.itemWidth() + cMinimapDisplay.getScreenX(), 
+				Camera.position.y / WorldGenerator.getSize().height * cMinimapDisplay.itemHeight() + cMinimapDisplay.getScreenY(), 
+				cWidth / Camera.zoom, cHeight / Camera.zoom);
 		MapObjectDrawer.draw(g);
 	}
 	
@@ -372,15 +355,14 @@ public class StateLevel extends BasicGameState
 		float cy = Game.screenHeight / 2 + Camera.position.y;
 		
 		if (value > 0)
-			Camera.zoom += .05f;
+		{
+			if (Camera.zoom + .05f <= 1)
+				Camera.zoom += .05f;
+		}
 		else
-			Camera.zoom -= .05f;
-		
-		if (Camera.zoom > 1f)
-			Camera.zoom = 1f;
-		else if (Camera.zoom < .1f)
-			Camera.zoom = .1f;
-		//Camera.setPosition(cx - Game.screenWidth / 2, cy - Game.screenHeight / 2);
+			if (Camera.zoom - .05f >= .09f)
+				Camera.zoom -= .05f;
+		Camera.setPosition(cx - Game.screenWidth / 2, cy - Game.screenHeight / 2);
 		Camera.resize((int)(Game.screenWidth / Camera.zoom), (int)(Game.screenHeight / Camera.zoom));
 		Camera.setControlSpeed(GameSettings.getScrollSpeed() / Camera.zoom);
 	}
