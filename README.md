@@ -8,4 +8,4 @@ A lot of it needs cleaning up due to it being rushed. Things like spatial partit
 and fleets would speed things things up quite a lot (not that it's slow, just not as fast as 
 it should be), and the pathfinding could benefit from A*.
 
-[Simple skirmish!](screenshots/screen4.png)
+![Simple skirmish](screenshots/screen4.png)
