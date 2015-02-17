@@ -22,7 +22,7 @@ public class SoundManager
 	public static void playSound(Sound sound)
 	{
 		if (sound != null)
-			sound.play(1, volume);
+			sound.play(1, (float)Math.pow(SoundManager.volume, 2.0));
 	}
 	
 	public static float getVolume()

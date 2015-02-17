@@ -19,7 +19,7 @@ public class MusicManager
 	{
 		MusicManager.volume = (float)volume / 100f;
 		for (Music music : tracks)
-			music.setVolume(MusicManager.volume);
+			music.setVolume((float)Math.pow(MusicManager.volume, 2.0));
 	}
 	
 	public static float getVolume()
