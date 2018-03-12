@@ -30,9 +30,11 @@ public class StarManager implements Iterable<Star>
 	 * @param star
 	 * @return Index of a star
 	 */
-	public static int getIndex( Star star){
+	public static int getIndex( Star star)
+	{
 		int i = 0;
-		while (getStar(i) != star){
+		while (getStar(i) != star)
+		{
 			i++;
 		}
 		return i;

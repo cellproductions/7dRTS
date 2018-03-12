@@ -80,7 +80,8 @@ public class Player
 	public void removeStar(Star star)
 	{
 		// Added by Hanzallah Burney
-		if (star == startingStar && StarManager.getStar(StarManager.getIndex(star)+1) != null){
+		if (star == startingStar && StarManager.getStar(StarManager.getIndex(star)+1) != null)
+		{
 			startingStar = StarManager.getStar(StarManager.getIndex(star)+1);
 		}
 		ownedStars.remove(star);
