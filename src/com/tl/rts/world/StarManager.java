@@ -24,6 +24,21 @@ public class StarManager implements Iterable<Star>
 	{
 		return stars.get(index);
 	}
+
+	/**
+	 * @author Hanzallah Burney
+	 * @param star
+	 * @return Index of a star
+	 */
+	public static int getIndex( Star star)
+	{
+		int i = 0;
+		while (getStar(i) != star)
+		{
+			i++;
+		}
+		return i;
+	}
 	
 	public static void reset()
 	{
